@@ -33,8 +33,17 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# credentials / secrets (never commit)
+Credentials*
+credentials*
+*.credentials.*
+Credentials.txt
+
 # vercel
 .vercel
+
+# claude code local state
+.claude/
 
 # typescript
 *.tsbuildinfo
