@@ -8,6 +8,7 @@ export type Profile = {
   display_name: string | null;
   role: "client" | "admin";
   currency: string;
+  onboarded_at: string | null;
 };
 
 /** Data Access Layer entry point — memoized per request. */
@@ -21,7 +22,7 @@ export const getCurrentUser = cache(async () => {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("id, display_name, role, currency")
+    .select("id, display_name, role, currency, onboarded_at")
     .eq("id", user.id)
     .single<Profile>();
 
